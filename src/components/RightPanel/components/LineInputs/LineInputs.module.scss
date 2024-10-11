@@ -1,0 +1,39 @@
+.leftBorderContainer {
+  @apply rounded-l border border-transparent;
+}
+
+.rightBorderContainer {
+  @apply rounded-r border border-transparent;
+}
+
+.betweenBorderContainer {
+  @apply border border-transparent;
+}
+
+.onInLineBorderContainer {
+  @apply rounded border border-transparent;
+}
+
+.container {
+  @apply flex items-center p-1 h-[22px] w-full text-xs font-normal;
+}
+
+.focus {
+  @apply focus-within:border-teal-500;
+}
+
+.bg {
+  @apply bg-gray-700;
+}
+
+.single {
+  @apply flex w-[182px] rounded border border-transparent bg-gray-700 focus-within:border-teal-500;
+}
+
+.input {
+  @apply w-full text-xs pl-1 font-normal text-left bg-gray-700 focus:outline-none;
+}
+
+.icon {
+  @apply flex justify-center items-center text-gray-500 min-w-[16px];
+}

@@ -1,0 +1,1 @@
+export * from './MoveEntityIcon.tsx';

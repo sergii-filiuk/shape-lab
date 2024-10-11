@@ -1,0 +1,38 @@
+.container {
+  @apply border-2 border-solid border-[#02b7fe];
+}
+
+.clearCursor {
+  cursor: none !important;
+}
+
+.rotate_tl_cursor {
+  transform: rotate(175deg);
+}
+
+.rotate_tr_cursor {
+  transform: rotate(-90deg);
+}
+
+.rotate_bl_cursor {
+  transform: rotate(90deg);
+}
+.rotate_br_cursor {
+  transform: rotate(0deg);
+}
+
+.scale_tl_cursor {
+  transform: rotate(-45deg);
+}
+
+.scale_tr_cursor {
+  transform: rotate(45deg);
+}
+
+.scale_bl_cursor {
+  transform: rotate(45deg);
+}
+
+.scale_br_cursor {
+  transform: rotate(-45deg);
+}
