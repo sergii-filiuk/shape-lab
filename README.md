@@ -1,5 +1,7 @@
 # Shape Lab
 
+You can play with project here - [DEMO](https://sergii-filiuk.github.io/shape-lab/dist/index.html)
+
 This provides a minimal setup to get working the Shape Lab.
 
 - install dependencies and packages:
