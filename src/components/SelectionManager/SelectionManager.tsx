@@ -90,23 +90,29 @@ export const SelectionManager = () => {
 
     const element = document.querySelector(`#scene_${scene?.id}`);
 
-    if (scene && element) {
-      const boundingClientRect = element && element.getBoundingClientRect();
-      const shapes = Object.values(scene?.shapes);
-      const mouseX = e.clientX - boundingClientRect.left;
-      const mouseY = e.clientY - boundingClientRect.top;
+    if (!(scene && element)) return;
 
-      const pointInShapes = shapes
-        .filter((shape) =>
-          isPointInsideRectangle(
-            { x: mouseX, y: mouseY },
-            getShapeRectangle(shape)
-          )
+    const boundingClientRect = element && element.getBoundingClientRect();
+    const shapes = Object.values(scene?.shapes);
+    const mouseX = e.clientX - boundingClientRect.left;
+    const mouseY = e.clientY - boundingClientRect.top;
+
+    const pointInShapes = shapes
+      .filter((shape) =>
+        isPointInsideRectangle(
+          { x: mouseX, y: mouseY },
+          getShapeRectangle(shape)
         )
-        .sort((a, b) => b.zIndex - a.zIndex);
+      )
+      .sort((a, b) => b.zIndex - a.zIndex);
 
+    if (!pointInShapes.length) {
+      setStartMousePosition({ x: e.clientX, y: e.clientY });
+      setIsSelecting(true);
+    }
+
+    if (element.contains(e.target as Node)) {
       const maxZIndex = Math.max(...shapes.flatMap((shape) => shape.zIndex));
-
       const pointInShape = pointInShapes[0];
 
       updateShapes(
@@ -141,10 +147,7 @@ export const SelectionManager = () => {
         })
       );
 
-      if (!pointInShapes.length) {
-        setStartMousePosition({ x: e.clientX, y: e.clientY });
-        setIsSelecting(true);
-      } else {
+      if (pointInShapes.length) {
         setTransformFrameNeedsUpdate(true);
       }
     }
