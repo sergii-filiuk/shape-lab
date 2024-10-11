@@ -90,7 +90,7 @@ export const SelectionManager = () => {
 
     const element = document.querySelector(`#scene_${scene?.id}`);
 
-    if (scene && element && element.contains(e.target as Node)) {
+    if (scene && element) {
       const boundingClientRect = element && element.getBoundingClientRect();
       const shapes = Object.values(scene?.shapes);
       const mouseX = e.clientX - boundingClientRect.left;
